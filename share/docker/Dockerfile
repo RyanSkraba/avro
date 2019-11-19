@@ -19,9 +19,11 @@
 
 FROM openjdk:8
 WORKDIR /root
-CMD ["/avro/share/docker/run-tests.sh"]
+
 ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=isolemnlysweariamuptonogood \
     DEBIAN_FRONTEND=noninteractive
+
+RUN echo -n "Start: " && date +%s
 
 # Install dependencies from vanilla system packages
 RUN apt-get -qqy update \
@@ -66,6 +68,8 @@ RUN apt-get -qqy update \
  && apt-get -qqy clean \
  && rm -rf /var/lib/apt/lists
 
+RUN echo -n "Apt-get: " && date +%s
+
 # Install nodejs 6
 RUN curl -sSL https://deb.nodesource.com/setup_6.x \
   | bash - \
@@ -74,6 +78,8 @@ RUN curl -sSL https://deb.nodesource.com/setup_6.x \
  && rm -rf /var/lib/apt/lists \
  && npm install -g grunt-cli \
  && npm cache clean
+
+RUN echo -n "Node: " && date +%s
 
 # Install PHP
 # TODO: Remove php5-related packages when we drop PHP 5.6 support in the future
@@ -94,6 +100,8 @@ RUN curl -sSL https://packages.sury.org/php/apt.gpg \
 # TODO: use PHPUnit 7.x instead of 5.7 when we drop PHP 5.6 support in the future
 RUN curl -sSL https://phar.phpunit.de/phpunit-5.7.phar > /usr/local/bin/phpunit \
  && chmod +x /usr/local/bin/phpunit
+
+RUN echo -n "PHP: " && date +%s
 
 # Install Perl modules
 RUN if [ $(which java) = "/usr/local/openjdk-11/bin/java" ]; then curl -sSL https://cpanmin.us \
@@ -116,6 +124,8 @@ RUN if [ $(which java) = "/usr/local/openjdk-11/bin/java" ]; then curl -sSL http
                                                  Try::Tiny \
  && rm -rf .cpanm; fi
 
+RUN echo -n "Perl: " && date +%s
+
 # Install Python packages
 ENV PIP_NO_CACHE_DIR=off
 
@@ -123,9 +133,13 @@ ENV PIP_NO_CACHE_DIR=off
 RUN python2 -m pip install --upgrade pip setuptools \
  && python2 -m pip install zstandard
 
+RUN echo -n "Python2: " && date +%s
+
 # Install Python3 packages
 RUN python3 -m pip install --upgrade pip setuptools \
  && python3 -m pip install zstandard
+
+RUN echo -n "Python3: " && date +%s
 
 # Install .NET SDK
 RUN curl -sSLO https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb \
@@ -136,6 +150,12 @@ RUN curl -sSLO https://packages.microsoft.com/config/ubuntu/16.04/packages-micro
  && apt-get -qqy clean \
  && rm -rf /var/lib/apt/lists
 
+RUN echo -n ".NET: " && date +%s
+
 # Install Ruby modules
 COPY lang/ruby/Gemfile /tmp
 RUN bundle install --gemfile=/tmp/Gemfile
+
+RUN echo -n "RUBY: " && date +%s
+
+CMD ["/bin/bash", "-i"]
