@@ -19,13 +19,16 @@ set -e
 
 case "$TRAVIS_OS_NAME" in
 "linux")
-    # Workaround for Yetus. For now, Yetus assumes the directory in which Dockerfile is placed is the docker context.
-    # So the Dockerfile should be here to refer to other subdirectories than share/docker from inside the Dockerfile.
-    cp share/docker/Dockerfile .
-    /tmp/apache-yetus-0.10.0/bin/test-patch --plugins=buildtest --java-home=/usr/local/openjdk-"${JAVA}" --user-plugins=share/precommit/ --run-tests --empty-patch --docker --dockerfile=Dockerfile --dirty-workspace
-    ;;
-"windows")
-    ./lang/csharp/build.sh test
+
+    # The digest of the ubertool container from the cache, if any.
+    CACHED_CI_UBERTOOL_IMAGE=$(docker images -q ubertool)
+
+    # Rebuild the ubertool container using the build cache.
+    tar -cf- lang/ruby/Gemfile share/docker/Dockerfile | docker build -t ubertool -f share/docker/Dockerfile -
+    CI_UBERTOOL_IMAGE=$(docker images -q ubertool)
+
+    # If and only if the ubertool has changed, save it back into the cache.
+    [[ "z$CI_UBERTOOL_IMAGE" != "z$CACHED_CI_UBERTOOL_IMAGE" ]] && docker save -o $HOME/docker_images/ubertool.tar $(docker history -q ubertool | grep -v missing) ubertool
     ;;
 *)
     echo "Invalid PLATFORM"
