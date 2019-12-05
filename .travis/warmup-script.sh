@@ -28,7 +28,7 @@ case "$TRAVIS_OS_NAME" in
     CI_UBERTOOL_IMAGE=$(docker images -q ubertool)
 
     # If and only if the ubertool has changed, save it back into the cache.
-    [[ "z$CI_UBERTOOL_IMAGE" != "z$CACHED_CI_UBERTOOL_IMAGE" ]] && docker save -o $HOME/docker_images/ubertool.tar $(docker history -q ubertool) ubertool
+    [[ "z$CI_UBERTOOL_IMAGE" != "z$CACHED_CI_UBERTOOL_IMAGE" ]] && docker save -o $HOME/docker_images/ubertool.tar $(docker history -q ubertool | grep -v missing) ubertool
     ;;
 *)
     echo "Invalid PLATFORM"
