@@ -19,22 +19,16 @@ set -e
 
 case "$TRAVIS_OS_NAME" in
 "linux")
-    sudo apt-get -q update
-    sudo apt-get -q install --no-install-recommends -y curl git gnupg-agent locales pinentry-curses pkg-config rsync software-properties-common
-    sudo apt-get -q clean
-    sudo rm -rf /var/lib/apt/lists/*
 
-    [[ -f $HOME/docker_images/ubertool.tar ]] && docker load -i $HOME/docker_images/ubertool.tar || true
+    # The digest of the ubertool container from the cache, if any.
+    CACHED_CI_UBERTOOL_IMAGE=$(docker images -q ubertool)
 
-    # Only Yetus 0.9.0+ supports `ADD` and `COPY` commands in Dockerfile
-    curl -L https://www-us.apache.org/dist/yetus/0.10.0/apache-yetus-0.10.0-bin.tar.gz | tar xvz -C /tmp/
-    # A dirty workaround to disable the Yetus robot for TravisCI,
-    # since it'll cancel the changes that .travis/script.sh will do,
-    # even if the `--dirty-workspace` option is specified.
-    rm /tmp/apache-yetus-0.10.0/lib/precommit/robots.d/travisci.sh
-    ;;
-"windows")
-    choco install dotnetcore-sdk --version 2.2.300
+    # Rebuild the ubertool container using the build cache.
+    tar -cf- lang/ruby/Gemfile share/docker/Dockerfile | docker build -t ubertool -f share/docker/Dockerfile -
+    CI_UBERTOOL_IMAGE=$(docker images -q ubertool)
+
+    # If and only if the ubertool has changed, save it back into the cache.
+    [[ "z$CI_UBERTOOL_IMAGE" != "z$CACHED_CI_UBERTOOL_IMAGE" ]] && docker save -o $HOME/docker_images/ubertool.tar $(docker history -q ubertool) ubertool
     ;;
 *)
     echo "Invalid PLATFORM"

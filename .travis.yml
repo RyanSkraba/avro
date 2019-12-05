@@ -22,16 +22,26 @@ sudo: required
 services:
   - docker
 
+cache:
+  directories:
+    - $HOME/docker_images
+
 matrix:
   include:
-  - language: generic
-    env:
-      JAVA=8
 
-  - language: generic
-    env:
-      JAVA=11
+  # The Warm up stage is used to generate the ubertools docker image for building.
+  - stage: Warmup
+    language: generic
+    script: "if [ -x ./.travis/warmup-script.sh   ] ; then ./.travis/warmup-script.sh ; fi"
 
+  # The build stages will have the ubertools docker image in the docker build cache.
+  - stage: avro-builds
+    name: Build the world with JAVA=8
+    language: generic
+    script: "JAVA=8 ./.travis/script.sh"
+  - name: Build the world with JAVA=11
+    language: generic
+    script: "JAVA=11 ./.travis/script.sh"
   - os: windows
     language: bash
 
@@ -40,3 +50,4 @@ install:        "if [ -x ./.travis/install.sh          ] ; then ./.travis/instal
 before_script:  "if [ -x ./.travis/before_script.sh    ] ; then ./.travis/before_script.sh  ; fi"
 script:         "if [ -x ./.travis/script.sh           ] ; then ./.travis/script.sh         ; fi"
 after_script:   "if [ -x ./.travis/after_script.sh     ] ; then ./.travis/after_script.sh   ; fi"
+before_cache:   "if [ -x ./.travis/before_cache.sh     ] ; then ./.travis/before_cache.sh   ; fi"
