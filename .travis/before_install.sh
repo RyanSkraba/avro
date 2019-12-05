@@ -24,6 +24,8 @@ case "$TRAVIS_OS_NAME" in
     sudo apt-get -q clean
     sudo rm -rf /var/lib/apt/lists/*
 
+    [[ -f $HOME/docker_images/ubertool.tar ]] && docker load -i $HOME/docker_images/ubertool.tar || true
+
     # Only Yetus 0.9.0+ supports `ADD` and `COPY` commands in Dockerfile
     curl -L https://www-us.apache.org/dist/yetus/0.10.0/apache-yetus-0.10.0-bin.tar.gz | tar xvz -C /tmp/
     # A dirty workaround to disable the Yetus robot for TravisCI,
