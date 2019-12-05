@@ -145,7 +145,7 @@ RUN bundle install --gemfile=/tmp/Gemfile
 # Note: This "ubertool" container has two JDK versions:
 # - OpenJDK 8 (installed as a package and available at /usr/bin/java)
 # - OpenJDK 11 (installed from the base image, and prioritized in the PATH)
-# - The root build.sh script switches between the versions according to 
+# - The root build.sh script switches between the versions according to
 #   the JAVA environment variable.
 
 # Since want the JDK8 as a default, we have to re-prepend it to the PATH.

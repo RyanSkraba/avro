@@ -63,4 +63,5 @@ buildtest_postcompile() {
 
 buildtest_docker_support() {
   DOCKER_EXTRAARGS+=("--env" "JAVA=$JAVA")
+  DOCKER_EXTRAARGS+=("--volume" "$HOME/.m2:$HOME/.m2")
 }
