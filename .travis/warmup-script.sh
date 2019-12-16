@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set -e
+set -x
 
 case "$TRAVIS_OS_NAME" in
 "linux")
