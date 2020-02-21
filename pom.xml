@@ -41,9 +41,18 @@
        -->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
     <main.basedir>${project.basedir}</main.basedir>
     <avro.distDir>dist</avro.distDir>
     <avro.docDir>build/avro-doc-${project.version}/api</avro.docDir>
+
+    <!-- OSGi properties to be overridden. -->
+    <osgi.activator/>
+    <osgi.bundles/>
+    <osgi.dynamic.import/>
+    <osgi.private/>
+
     <!-- dependency plugin versions -->
     <apache-rat-tasks.version>0.7</apache-rat-tasks.version>
 

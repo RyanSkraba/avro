@@ -515,7 +515,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
 
     Field(String name, Schema schema, String doc, JsonNode defaultValue, boolean validateDefault, Order order) {
       super(FIELD_RESERVED);
-      this.name = validateName(name);
+      this.name = validateName(name, false);
       this.schema = schema;
       this.doc = doc;
       this.defaultValue = validateDefault ? validateDefault(name, schema, defaultValue) : defaultValue;
@@ -616,7 +616,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
     public void addAlias(String alias) {
       if (aliases == null)
         this.aliases = new LinkedHashSet<>();
-      aliases.add(alias);
+      aliases.add(validateName(alias, false));
     }
 
     /** Return the defined aliases as an unmodifiable Set. */
@@ -668,15 +668,17 @@ public abstract class Schema extends JsonProperties implements Serializable {
         this.name = this.space = this.full = null;
         return;
       }
-      int lastDot = name.lastIndexOf('.');
-      if (lastDot < 0) { // unqualified name
-        this.name = validateName(name);
-      } else { // qualified name
-        space = name.substring(0, lastDot); // get space from name
-        this.name = validateName(name.substring(lastDot + 1, name.length()));
-      }
       if ("".equals(space))
         space = null;
+      int lastDot = name.lastIndexOf('.');
+      if (lastDot < 0) { // unqualified name
+        if (space != null)
+          space = validateName(space, true);
+        this.name = validateName(name, false);
+      } else { // qualified name
+        space = validateName(name.substring(0, lastDot), true); // get space from name
+        this.name = validateName(name.substring(lastDot + 1, name.length()), false);
+      }
       this.space = space;
       this.full = (this.space == null) ? this.name : this.space + "." + this.name;
     }
@@ -1003,7 +1005,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
       this.enumDefault = enumDefault;
       int i = 0;
       for (String symbol : symbols)
-        if (ordinals.put(validateName(symbol), i++) != null)
+        if (ordinals.put(validateName(symbol, false), i++) != null)
           throw new SchemaParseException("Duplicate enum symbol: " + symbol);
       if (enumDefault != null && !symbols.contains(enumDefault))
         throw new SchemaParseException(
@@ -1515,20 +1517,30 @@ public abstract class Schema extends JsonProperties implements Serializable {
 
   private static ThreadLocal<Boolean> validateNames = ThreadLocal.withInitial(() -> true);
 
-  private static String validateName(String name) {
+  private static String validateName(String name, boolean allowPackage) {
     if (!validateNames.get())
       return name; // not validating names
+
+    if (name.length() == 0)
+      throw new SchemaParseException("OH NO!");
+
+    boolean lastDot = true;
     int length = name.length();
-    if (length == 0)
-      throw new SchemaParseException("Empty name");
-    char first = name.charAt(0);
-    if (!(Character.isLetter(first) || first == '_'))
-      throw new SchemaParseException("Illegal initial character: " + name);
-    for (int i = 1; i < length; i++) {
+    for (int i = 0; i < length; i++) {
       char c = name.charAt(i);
-      if (!(Character.isLetterOrDigit(c) || c == '_'))
-        throw new SchemaParseException("Illegal character in: " + name);
+      if (c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c == '_')
+        ;
+      else if (!lastDot && (c == '.' || c >= '0' && c <= '9'))
+        ;
+      else
+        throw new SchemaParseException("OH NO!");
+      lastDot = c == '.';
+      if (lastDot && !allowPackage)
+        throw new SchemaParseException("OH NO!");
     }
+    if (lastDot)
+      throw new SchemaParseException("OH NO!");
+
     return name;
   }
 
@@ -1649,7 +1661,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
             if (!FIELD_RESERVED.contains(prop))
               f.addProp(prop, field.get(prop));
           }
-          f.aliases = parseAliases(field);
+          f.aliases = parseAliases(field, false);
           fields.add(f);
         }
         result.setFields(fields);
@@ -1706,7 +1718,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
       result.logicalType = LogicalTypes.fromSchemaIgnoreInvalid(result);
       names.space(savedSpace); // restore space
       if (result instanceof NamedSchema) {
-        Set<String> aliases = parseAliases(schema);
+        Set<String> aliases = parseAliases(schema, true);
         if (aliases != null) // add aliases
           for (String alias : aliases)
             result.addAlias(alias);
@@ -1722,7 +1734,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
     }
   }
 
-  static Set<String> parseAliases(JsonNode node) {
+  static Set<String> parseAliases(JsonNode node, boolean allowPackage) {
     JsonNode aliasesNode = node.get("aliases");
     if (aliasesNode == null)
       return null;
@@ -1732,7 +1744,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
     for (JsonNode aliasNode : aliasesNode) {
       if (!aliasNode.isTextual())
         throw new SchemaParseException("alias not a string: " + aliasNode);
-      aliases.add(aliasNode.textValue());
+      aliases.add(validateName(aliasNode.textValue(), allowPackage));
     }
     return aliases;
   }

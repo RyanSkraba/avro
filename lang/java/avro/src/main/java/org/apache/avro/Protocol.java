@@ -583,7 +583,7 @@ public class Protocol extends JsonProperties {
         fieldDoc = fieldDocNode.textValue();
       Field newField = new Field(name, Schema.parse(fieldTypeNode, types), fieldDoc, field.get("default"), true,
           Order.ASCENDING);
-      Set<String> aliases = Schema.parseAliases(field);
+      Set<String> aliases = Schema.parseAliases(field, false);
       if (aliases != null) { // add aliases
         for (String alias : aliases)
           newField.addAlias(alias);

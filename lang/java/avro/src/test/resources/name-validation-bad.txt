@@ -1,0 +1,250 @@
+NameValidationErrorRecordAnonymous:{"type":"record","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordEmptyName:{"type":"record","name":"","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordAnonymousWithNamespace:{"type":"record","namespace":"org.apache.avro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordEmptyNameWithNamespace:{"type":"record","name":"","namespace":"org.apache.avro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNameAccent:{"type":"record","name":"Sïmplé","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNameEmoji:{"type":"record","name":"Sim🚎ple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNameKebab:{"type":"record","name":"my-simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNameNumberStart:{"type":"record","name":"9Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamePercent:{"type":"record","name":"Sim%ple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNameUnicodeDigit:{"type":"record","name":"Simple۵","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNameWhitespace:{"type":"record","name":"Sim ple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNameStartDot:{"type":"record","name":".Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNameEndDot:{"type":"record","name":"Simple.","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameNumberStart:{"type":"record","name":"org.apache.avro.9Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameUnicodeDigit:{"type":"record","name":"org.apache.avro.Simple۵","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameWhitespace:{"type":"record","name":"org.apache.avro.Sim ple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameAccent:{"type":"record","name":"org.apache.avro.Sïmplé","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNamePercent:{"type":"record","name":"org.apache.avro.Sim%ple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameKebab:{"type":"record","name":"org.apache.avro.my-simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameEmoji:{"type":"record","name":"org.apache.avro.Sim🚎ple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameStartDot:{"type":"record","name":".org.apache.avro.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameDoubleDot:{"type":"record","name":"org.apache.avro..Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNameEndDot:{"type":"record","name":"org.apache..avro.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNamePackageAccent:{"type":"record","name":"org.apache.âvrö.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNamePackageEmoji:{"type":"record","name":"org.apache.av🚎ro.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNamePackageKebab:{"type":"record","name":"org.apache.my-avro.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNamePackageNumberStart:{"type":"record","name":"org.apache.9avro.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNamePackagePercent:{"type":"record","name":"org.apache.av%ro.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNamePackageUnicodeDigit:{"type":"record","name":"org.apache.avro۵.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordFullNamePackageWhitespace:{"type":"record","name":"org.apache.av ro.Simple","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceAccent:{"type":"record","name":"Simple","namespace":"org.apache.âvrö","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceEmoji:{"type":"record","name":"Simple","namespace":"org.apache.av🚎ro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceKebab:{"type":"record","name":"Simple","namespace":"org.apache.my-avro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceNumberStart:{"type":"record","name":"Simple","namespace":"org.apache.9avro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespacePercent:{"type":"record","name":"Simple","namespace":"org.apache.av%ro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceUnicodeDigit:{"type":"record","name":"Simple","namespace":"org.apache.avro۵","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceWhitespace:{"type":"record","name":"Simple","namespace":"org.apache.av ro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceStartDot:{"type":"record","name":"Simple","namespace":".org.apache.avro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceEndDot:{"type":"record","name":"Simple","namespace":"org.apache.avro.","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordNamespaceDoubleDot:{"type":"record","name":"Simple","namespace":"org.apache..avro","fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithEmptyAlias:{"type":"record","name":"Simple","aliases":[""],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNameAccent:{"type":"record","name":"Simple","aliases":["Sïmplé"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNameEmoji:{"type":"record","name":"Simple","aliases":["Sim🚎ple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNameKebab:{"type":"record","name":"Simple","aliases":["my-simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNameNumberStart:{"type":"record","name":"Simple","aliases":["9Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNamePercent:{"type":"record","name":"Simple","aliases":["Sim%ple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNameUnicodeDigit:{"type":"record","name":"Simple","aliases":["Simple۵"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNameWhitespace:{"type":"record","name":"Simple","aliases":["Sim ple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNameStartDot:{"type":"record","name":"Simple","aliases":[".Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasNameEndDot:{"type":"record","name":"Simple","aliases":["Simple."],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameNumberStart:{"type":"record","name":"Simple","aliases":["org.apache.avro.9Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameUnicodeDigit:{"type":"record","name":"Simple","aliases":["org.apache.avro.Simple۵"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameWhitespace:{"type":"record","name":"Simple","aliases":["org.apache.avro.Sim ple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameAccent:{"type":"record","name":"Simple","aliases":["org.apache.avro.Sïmplé"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNamePercent:{"type":"record","name":"Simple","aliases":["org.apache.avro.Sim%ple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameKebab:{"type":"record","name":"Simple","aliases":["org.apache.avro.my-simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameEmoji:{"type":"record","name":"Simple","aliases":["org.apache.avro.Sim🚎ple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameStartDot:{"type":"record","name":"Simple","aliases":[".org.apache.avro.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameDoubleDot:{"type":"record","name":"Simple","aliases":["org.apache.avro..Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNameEndDot:{"type":"record","name":"Simple","aliases":["org.apache..avro.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNamePackageAccent:{"type":"record","name":"Simple","aliases":["org.apache.âvrö.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNamePackageEmoji:{"type":"record","name":"Simple","aliases":["org.apache.av🚎ro.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNamePackageKebab:{"type":"record","name":"Simple","aliases":["org.apache.my-avro.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNamePackageNumberStart:{"type":"record","name":"Simple","aliases":["org.apache.9avro.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNamePackagePercent:{"type":"record","name":"Simple","aliases":["org.apache.av%ro.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNamePackageUnicodeDigit:{"type":"record","name":"Simple","aliases":["org.apache.avro۵.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorRecordWithAliasFullNamePackageWhitespace:{"type":"record","name":"Simple","aliases":["org.apache.av ro.Simple"],"fields":[{"name":"id","type":"int"}]}
+NameValidationErrorFieldFieldAccent:{"type":"record","name":"Simple","fields":[{"name":"ïd","type":"int"}]}
+NameValidationErrorFieldFieldEmoji:{"type":"record","name":"Simple","fields":[{"name":"i🚎d","type":"int"}]}
+NameValidationErrorFieldFieldKebab:{"type":"record","name":"Simple","fields":[{"name":"my-id","type":"int"}]}
+NameValidationErrorFieldFieldNumberStart:{"type":"record","name":"Simple","fields":[{"name":"9id","type":"int"}]}
+NameValidationErrorFieldFieldPercent:{"type":"record","name":"Simple","fields":[{"name":"i%d","type":"int"}]}
+NameValidationErrorFieldFieldUnicodeDigit:{"type":"record","name":"Simple","fields":[{"name":"id۵","type":"int"}]}
+NameValidationErrorFieldFieldWhitespace:{"type":"record","name":"Simple","fields":[{"name":"i d","type":"int"}]}
+NameValidationErrorFieldFieldStartDot:{"type":"record","name":"Simple","fields":[{"name":".id","type":"int"}]}
+NameValidationErrorFieldFieldEndDot:{"type":"record","name":"Simple","fields":[{"name":"id.","type":"int"}]}
+NameValidationErrorFieldFieldFullName:{"type":"record","name":"Simple","fields":[{"name":"org.apache.avro.Simple.id","type":"int"}]}
+NameValidationErrorFieldWithOneAliasFullName:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache._avro9.Alias"],"type":"int"}]}
+NameValidationErrorFieldWithSomeAliasesFullName:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache._avro9.Alias","org.apache._avro9.Alias9"],"type":"int"}]}
+NameValidationErrorFieldWithEmptyAlias:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":[""],"type":"int"}]}
+NameValidationErrorFieldWithAliasNameAccent:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["Sïmplé"],"type":"int"}]}
+NameValidationErrorFieldWithAliasNameEmoji:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["Sim🚎ple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasNameKebab:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["my-simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasNameNumberStart:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["9Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasNamePercent:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["Sim%ple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasNameUnicodeDigit:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["Simple۵"],"type":"int"}]}
+NameValidationErrorFieldWithAliasNameWhitespace:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["Sim ple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasNameStartDot:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":[".Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasNameEndDot:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["Simple."],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameNumberStart:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro.9Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameUnicodeDigit:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro.Simple۵"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameWhitespace:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro.Sim ple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameAccent:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro.Sïmplé"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNamePercent:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro.Sim%ple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameKebab:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro.my-simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameEmoji:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro.Sim🚎ple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameStartDot:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":[".org.apache.avro.Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameDoubleDot:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro..Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNameEndDot:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache..avro.Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNamePackageAccent:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.âvrö.Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNamePackageEmoji:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.av🚎ro.Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNamePackageKebab:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.my-avro.Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNamePackageNumberStart:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.9avro.Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNamePackagePercent:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.av%ro.Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNamePackageUnicodeDigit:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.avro۵.Simple"],"type":"int"}]}
+NameValidationErrorFieldWithAliasFullNamePackageWhitespace:{"type":"record","name":"Simple","fields":[{"name":"id","aliases":["org.apache.av ro.Simple"],"type":"int"}]}
+NameValidationErrorEnumAnonymous:{"type":"enum","symbols":["id"]}
+NameValidationErrorEnumEmptyName:{"type":"enum","name":"","symbols":["id"]}
+NameValidationErrorEnumAnonymousWithNamespace:{"type":"enum","namespace":"org.apache.avro","symbols":["id"]}
+NameValidationErrorEnumEmptyNameWithNamespace:{"type":"enum","name":"","namespace":"org.apache.avro","symbols":["id"]}
+NameValidationErrorEnumNameAccent:{"type":"enum","name":"Sïmplé","symbols":["id"]}
+NameValidationErrorEnumNameEmoji:{"type":"enum","name":"Sim🚎ple","symbols":["id"]}
+NameValidationErrorEnumNameKebab:{"type":"enum","name":"my-simple","symbols":["id"]}
+NameValidationErrorEnumNameNumberStart:{"type":"enum","name":"9Simple","symbols":["id"]}
+NameValidationErrorEnumNamePercent:{"type":"enum","name":"Sim%ple","symbols":["id"]}
+NameValidationErrorEnumNameUnicodeDigit:{"type":"enum","name":"Simple۵","symbols":["id"]}
+NameValidationErrorEnumNameWhitespace:{"type":"enum","name":"Sim ple","symbols":["id"]}
+NameValidationErrorEnumNameStartDot:{"type":"enum","name":".Simple","symbols":["id"]}
+NameValidationErrorEnumNameEndDot:{"type":"enum","name":"Simple.","symbols":["id"]}
+NameValidationErrorEnumFullNameNumberStart:{"type":"enum","name":"org.apache.avro.9Simple","symbols":["id"]}
+NameValidationErrorEnumFullNameUnicodeDigit:{"type":"enum","name":"org.apache.avro.Simple۵","symbols":["id"]}
+NameValidationErrorEnumFullNameWhitespace:{"type":"enum","name":"org.apache.avro.Sim ple","symbols":["id"]}
+NameValidationErrorEnumFullNameAccent:{"type":"enum","name":"org.apache.avro.Sïmplé","symbols":["id"]}
+NameValidationErrorEnumFullNamePercent:{"type":"enum","name":"org.apache.avro.Sim%ple","symbols":["id"]}
+NameValidationErrorEnumFullNameKebab:{"type":"enum","name":"org.apache.avro.my-simple","symbols":["id"]}
+NameValidationErrorEnumFullNameEmoji:{"type":"enum","name":"org.apache.avro.Sim🚎ple","symbols":["id"]}
+NameValidationErrorEnumFullNameStartDot:{"type":"enum","name":".org.apache.avro.Simple","symbols":["id"]}
+NameValidationErrorEnumFullNameDoubleDot:{"type":"enum","name":"org.apache.avro..Simple","symbols":["id"]}
+NameValidationErrorEnumFullNameEndDot:{"type":"enum","name":"org.apache..avro.Simple","symbols":["id"]}
+NameValidationErrorEnumFullNamePackageAccent:{"type":"enum","name":"org.apache.âvrö.Simple","symbols":["id"]}
+NameValidationErrorEnumFullNamePackageEmoji:{"type":"enum","name":"org.apache.av🚎ro.Simple","symbols":["id"]}
+NameValidationErrorEnumFullNamePackageKebab:{"type":"enum","name":"org.apache.my-avro.Simple","symbols":["id"]}
+NameValidationErrorEnumFullNamePackageNumberStart:{"type":"enum","name":"org.apache.9avro.Simple","symbols":["id"]}
+NameValidationErrorEnumFullNamePackagePercent:{"type":"enum","name":"org.apache.av%ro.Simple","symbols":["id"]}
+NameValidationErrorEnumFullNamePackageUnicodeDigit:{"type":"enum","name":"org.apache.avro۵.Simple","symbols":["id"]}
+NameValidationErrorEnumFullNamePackageWhitespace:{"type":"enum","name":"org.apache.av ro.Simple","symbols":["id"]}
+NameValidationErrorEnumNamespaceAccent:{"type":"enum","name":"Simple","namespace":"org.apache.âvrö","symbols":["id"]}
+NameValidationErrorEnumNamespaceEmoji:{"type":"enum","name":"Simple","namespace":"org.apache.av🚎ro","symbols":["id"]}
+NameValidationErrorEnumNamespaceKebab:{"type":"enum","name":"Simple","namespace":"org.apache.my-avro","symbols":["id"]}
+NameValidationErrorEnumNamespaceNumberStart:{"type":"enum","name":"Simple","namespace":"org.apache.9avro","symbols":["id"]}
+NameValidationErrorEnumNamespacePercent:{"type":"enum","name":"Simple","namespace":"org.apache.av%ro","symbols":["id"]}
+NameValidationErrorEnumNamespaceUnicodeDigit:{"type":"enum","name":"Simple","namespace":"org.apache.avro۵","symbols":["id"]}
+NameValidationErrorEnumNamespaceWhitespace:{"type":"enum","name":"Simple","namespace":"org.apache.av ro","symbols":["id"]}
+NameValidationErrorEnumNamespaceStartDot:{"type":"enum","name":"Simple","namespace":".org.apache.avro","symbols":["id"]}
+NameValidationErrorEnumNamespaceEndDot:{"type":"enum","name":"Simple","namespace":"org.apache.avro.","symbols":["id"]}
+NameValidationErrorEnumNamespaceDoubleDot:{"type":"enum","name":"Simple","namespace":"org.apache..avro","symbols":["id"]}
+NameValidationErrorEnumSymbolFieldAccent:{"type":"enum","name":"Simple","symbols":["ïd"]}
+NameValidationErrorEnumSymbolFieldEmoji:{"type":"enum","name":"Simple","symbols":["i🚎d"]}
+NameValidationErrorEnumSymbolFieldKebab:{"type":"enum","name":"Simple","symbols":["my-id"]}
+NameValidationErrorEnumSymbolFieldNumberStart:{"type":"enum","name":"Simple","symbols":["9id"]}
+NameValidationErrorEnumSymbolFieldPercent:{"type":"enum","name":"Simple","symbols":["i%d"]}
+NameValidationErrorEnumSymbolFieldUnicodeDigit:{"type":"enum","name":"Simple","symbols":["id۵"]}
+NameValidationErrorEnumSymbolFieldWhitespace:{"type":"enum","name":"Simple","symbols":["i d"]}
+NameValidationErrorEnumSymbolFieldStartDot:{"type":"enum","name":"Simple","symbols":[".id"]}
+NameValidationErrorEnumSymbolFieldEndDot:{"type":"enum","name":"Simple","symbols":["id."]}
+NameValidationErrorEnumSymbolFieldFullName:{"type":"enum","name":"Simple","symbols":["org.apache.avro.Simple.id"]}
+NameValidationErrorEnumWithEmptyAlias:{"type":"enum","name":"Simple","aliases":[""],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNameAccent:{"type":"enum","name":"Simple","aliases":["Sïmplé"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNameEmoji:{"type":"enum","name":"Simple","aliases":["Sim🚎ple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNameKebab:{"type":"enum","name":"Simple","aliases":["my-simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNameNumberStart:{"type":"enum","name":"Simple","aliases":["9Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNamePercent:{"type":"enum","name":"Simple","aliases":["Sim%ple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNameUnicodeDigit:{"type":"enum","name":"Simple","aliases":["Simple۵"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNameWhitespace:{"type":"enum","name":"Simple","aliases":["Sim ple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNameStartDot:{"type":"enum","name":"Simple","aliases":[".Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasNameEndDot:{"type":"enum","name":"Simple","aliases":["Simple."],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameNumberStart:{"type":"enum","name":"Simple","aliases":["org.apache.avro.9Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameUnicodeDigit:{"type":"enum","name":"Simple","aliases":["org.apache.avro.Simple۵"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameWhitespace:{"type":"enum","name":"Simple","aliases":["org.apache.avro.Sim ple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameAccent:{"type":"enum","name":"Simple","aliases":["org.apache.avro.Sïmplé"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNamePercent:{"type":"enum","name":"Simple","aliases":["org.apache.avro.Sim%ple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameKebab:{"type":"enum","name":"Simple","aliases":["org.apache.avro.my-simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameEmoji:{"type":"enum","name":"Simple","aliases":["org.apache.avro.Sim🚎ple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameStartDot:{"type":"enum","name":"Simple","aliases":[".org.apache.avro.Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameDoubleDot:{"type":"enum","name":"Simple","aliases":["org.apache.avro..Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNameEndDot:{"type":"enum","name":"Simple","aliases":["org.apache..avro.Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNamePackageAccent:{"type":"enum","name":"Simple","aliases":["org.apache.âvrö.Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNamePackageEmoji:{"type":"enum","name":"Simple","aliases":["org.apache.av🚎ro.Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNamePackageKebab:{"type":"enum","name":"Simple","aliases":["org.apache.my-avro.Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNamePackageNumberStart:{"type":"enum","name":"Simple","aliases":["org.apache.9avro.Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNamePackagePercent:{"type":"enum","name":"Simple","aliases":["org.apache.av%ro.Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNamePackageUnicodeDigit:{"type":"enum","name":"Simple","aliases":["org.apache.avro۵.Simple"],"symbols":["id"]}
+NameValidationErrorEnumWithAliasFullNamePackageWhitespace:{"type":"enum","name":"Simple","aliases":["org.apache.av ro.Simple"],"symbols":["id"]}
+NameValidationErrorFixedAnonymous:{"type":"fixed","size":1}
+NameValidationErrorFixedEmptyName:{"type":"fixed","name":"","size":1}
+NameValidationErrorFixedAnonymousWithNamespace:{"type":"fixed","namespace":"org.apache.avro","size":1}
+NameValidationErrorFixedEmptyNameWithNamespace:{"type":"fixed","name":"","namespace":"org.apache.avro","size":1}
+NameValidationErrorFixedNameAccent:{"type":"fixed","name":"Sïmplé","size":1}
+NameValidationErrorFixedNameEmoji:{"type":"fixed","name":"Sim🚎ple","size":1}
+NameValidationErrorFixedNameKebab:{"type":"fixed","name":"my-simple","size":1}
+NameValidationErrorFixedNameNumberStart:{"type":"fixed","name":"9Simple","size":1}
+NameValidationErrorFixedNamePercent:{"type":"fixed","name":"Sim%ple","size":1}
+NameValidationErrorFixedNameUnicodeDigit:{"type":"fixed","name":"Simple۵","size":1}
+NameValidationErrorFixedNameWhitespace:{"type":"fixed","name":"Sim ple","size":1}
+NameValidationErrorFixedNameStartDot:{"type":"fixed","name":".Simple","size":1}
+NameValidationErrorFixedNameEndDot:{"type":"fixed","name":"Simple.","size":1}
+NameValidationErrorFixedFullNameNumberStart:{"type":"fixed","name":"org.apache.avro.9Simple","size":1}
+NameValidationErrorFixedFullNameUnicodeDigit:{"type":"fixed","name":"org.apache.avro.Simple۵","size":1}
+NameValidationErrorFixedFullNameWhitespace:{"type":"fixed","name":"org.apache.avro.Sim ple","size":1}
+NameValidationErrorFixedFullNameAccent:{"type":"fixed","name":"org.apache.avro.Sïmplé","size":1}
+NameValidationErrorFixedFullNamePercent:{"type":"fixed","name":"org.apache.avro.Sim%ple","size":1}
+NameValidationErrorFixedFullNameKebab:{"type":"fixed","name":"org.apache.avro.my-simple","size":1}
+NameValidationErrorFixedFullNameEmoji:{"type":"fixed","name":"org.apache.avro.Sim🚎ple","size":1}
+NameValidationErrorFixedFullNameStartDot:{"type":"fixed","name":".org.apache.avro.Simple","size":1}
+NameValidationErrorFixedFullNameDoubleDot:{"type":"fixed","name":"org.apache.avro..Simple","size":1}
+NameValidationErrorFixedFullNameEndDot:{"type":"fixed","name":"org.apache..avro.Simple","size":1}
+NameValidationErrorFixedFullNamePackageAccent:{"type":"fixed","name":"org.apache.âvrö.Simple","size":1}
+NameValidationErrorFixedFullNamePackageEmoji:{"type":"fixed","name":"org.apache.av🚎ro.Simple","size":1}
+NameValidationErrorFixedFullNamePackageKebab:{"type":"fixed","name":"org.apache.my-avro.Simple","size":1}
+NameValidationErrorFixedFullNamePackageNumberStart:{"type":"fixed","name":"org.apache.9avro.Simple","size":1}
+NameValidationErrorFixedFullNamePackagePercent:{"type":"fixed","name":"org.apache.av%ro.Simple","size":1}
+NameValidationErrorFixedFullNamePackageUnicodeDigit:{"type":"fixed","name":"org.apache.avro۵.Simple","size":1}
+NameValidationErrorFixedFullNamePackageWhitespace:{"type":"fixed","name":"org.apache.av ro.Simple","size":1}
+NameValidationErrorFixedNamespaceAccent:{"type":"fixed","name":"Simple","namespace":"org.apache.âvrö","size":1}
+NameValidationErrorFixedNamespaceEmoji:{"type":"fixed","name":"Simple","namespace":"org.apache.av🚎ro","size":1}
+NameValidationErrorFixedNamespaceKebab:{"type":"fixed","name":"Simple","namespace":"org.apache.my-avro","size":1}
+NameValidationErrorFixedNamespaceNumberStart:{"type":"fixed","name":"Simple","namespace":"org.apache.9avro","size":1}
+NameValidationErrorFixedNamespacePercent:{"type":"fixed","name":"Simple","namespace":"org.apache.av%ro","size":1}
+NameValidationErrorFixedNamespaceUnicodeDigit:{"type":"fixed","name":"Simple","namespace":"org.apache.avro۵","size":1}
+NameValidationErrorFixedNamespaceWhitespace:{"type":"fixed","name":"Simple","namespace":"org.apache.av ro","size":1}
+NameValidationErrorFixedNamespaceStartDot:{"type":"fixed","name":"Simple","namespace":".org.apache.avro","size":1}
+NameValidationErrorFixedNamespaceEndDot:{"type":"fixed","name":"Simple","namespace":"org.apache.avro.","size":1}
+NameValidationErrorFixedNamespaceDoubleDot:{"type":"fixed","name":"Simple","namespace":"org.apache..avro","size":1}
+NameValidationErrorFixedWithEmptyAlias:{"type":"fixed","name":"Simple","aliases":[""],"size":1}
+NameValidationErrorFixedWithAliasNameAccent:{"type":"fixed","name":"Simple","aliases":["Sïmplé"],"size":1}
+NameValidationErrorFixedWithAliasNameEmoji:{"type":"fixed","name":"Simple","aliases":["Sim🚎ple"],"size":1}
+NameValidationErrorFixedWithAliasNameKebab:{"type":"fixed","name":"Simple","aliases":["my-simple"],"size":1}
+NameValidationErrorFixedWithAliasNameNumberStart:{"type":"fixed","name":"Simple","aliases":["9Simple"],"size":1}
+NameValidationErrorFixedWithAliasNamePercent:{"type":"fixed","name":"Simple","aliases":["Sim%ple"],"size":1}
+NameValidationErrorFixedWithAliasNameUnicodeDigit:{"type":"fixed","name":"Simple","aliases":["Simple۵"],"size":1}
+NameValidationErrorFixedWithAliasNameWhitespace:{"type":"fixed","name":"Simple","aliases":["Sim ple"],"size":1}
+NameValidationErrorFixedWithAliasNameStartDot:{"type":"fixed","name":"Simple","aliases":[".Simple"],"size":1}
+NameValidationErrorFixedWithAliasNameEndDot:{"type":"fixed","name":"Simple","aliases":["Simple."],"size":1}
+NameValidationErrorFixedWithAliasFullNameNumberStart:{"type":"fixed","name":"Simple","aliases":["org.apache.avro.9Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNameUnicodeDigit:{"type":"fixed","name":"Simple","aliases":["org.apache.avro.Simple۵"],"size":1}
+NameValidationErrorFixedWithAliasFullNameWhitespace:{"type":"fixed","name":"Simple","aliases":["org.apache.avro.Sim ple"],"size":1}
+NameValidationErrorFixedWithAliasFullNameAccent:{"type":"fixed","name":"Simple","aliases":["org.apache.avro.Sïmplé"],"size":1}
+NameValidationErrorFixedWithAliasFullNamePercent:{"type":"fixed","name":"Simple","aliases":["org.apache.avro.Sim%ple"],"size":1}
+NameValidationErrorFixedWithAliasFullNameKebab:{"type":"fixed","name":"Simple","aliases":["org.apache.avro.my-simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNameEmoji:{"type":"fixed","name":"Simple","aliases":["org.apache.avro.Sim🚎ple"],"size":1}
+NameValidationErrorFixedWithAliasFullNameStartDot:{"type":"fixed","name":"Simple","aliases":[".org.apache.avro.Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNameDoubleDot:{"type":"fixed","name":"Simple","aliases":["org.apache.avro..Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNameEndDot:{"type":"fixed","name":"Simple","aliases":["org.apache..avro.Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNamePackageAccent:{"type":"fixed","name":"Simple","aliases":["org.apache.âvrö.Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNamePackageEmoji:{"type":"fixed","name":"Simple","aliases":["org.apache.av🚎ro.Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNamePackageKebab:{"type":"fixed","name":"Simple","aliases":["org.apache.my-avro.Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNamePackageNumberStart:{"type":"fixed","name":"Simple","aliases":["org.apache.9avro.Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNamePackagePercent:{"type":"fixed","name":"Simple","aliases":["org.apache.av%ro.Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNamePackageUnicodeDigit:{"type":"fixed","name":"Simple","aliases":["org.apache.avro۵.Simple"],"size":1}
+NameValidationErrorFixedWithAliasFullNamePackageWhitespace:{"type":"fixed","name":"Simple","aliases":["org.apache.av ro.Simple"],"size":1}
