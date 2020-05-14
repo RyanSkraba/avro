@@ -33,7 +33,7 @@ do
       ;;
 
     test)
-      MSBUILDSINGLELOADCONTEXT=1 dotnet build --configuration Release Avro.sln
+      dotnet build --configuration Release Avro.sln
 
       # AVRO-2442: Explictly set LANG to work around ICU bug in `dotnet test`
       LANG=en_US.UTF-8 dotnet test  --configuration Release --no-build \
