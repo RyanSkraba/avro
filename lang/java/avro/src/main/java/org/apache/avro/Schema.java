@@ -46,6 +46,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.regex.Pattern;
+
 import org.apache.avro.util.internal.Accessor;
 import org.apache.avro.util.internal.Accessor.FieldAccessor;
 import org.apache.avro.util.internal.JacksonUtils;
@@ -536,7 +538,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
 
     Field(String name, Schema schema, String doc, JsonNode defaultValue, boolean validateDefault, Order order) {
       super(FIELD_RESERVED);
-      this.name = validateName(name);
+      this.name = validateName(name, false);
       this.schema = schema;
       this.doc = doc;
       this.defaultValue = validateDefault ? validateDefault(name, schema, defaultValue) : defaultValue;
@@ -691,14 +693,15 @@ public abstract class Schema extends JsonProperties implements Serializable {
       }
       int lastDot = name.lastIndexOf('.');
       if (lastDot < 0) { // unqualified name
-        this.name = validateName(name);
+        this.name = validateName(name, false);
       } else { // qualified name
         space = name.substring(0, lastDot); // get space from name
-        this.name = validateName(name.substring(lastDot + 1, name.length()));
+        this.name = validateName(name.substring(lastDot + 1), true);
       }
-      if ("".equals(space))
-        space = null;
-      this.space = space;
+      if ("".equals(space) || space == null)
+        this.space = null;
+      else
+        this.space = validateName(space, true);
       this.full = (this.space == null) ? this.name : this.space + "." + this.name;
     }
 
@@ -1025,7 +1028,7 @@ public abstract class Schema extends JsonProperties implements Serializable {
       this.enumDefault = enumDefault;
       int i = 0;
       for (String symbol : symbols) {
-        if (ordinals.put(validateName(symbol), i++) != null) {
+        if (ordinals.put(validateName(symbol, false), i++) != null) {
           throw new SchemaParseException("Duplicate enum symbol: " + symbol);
         }
       }
@@ -1415,17 +1418,17 @@ public abstract class Schema extends JsonProperties implements Serializable {
     }
 
     private Schema parse(JsonParser parser) throws IOException {
-      boolean saved = validateNames.get();
+      boolean saved = VALIDATE_NAMES.get();
       boolean savedValidateDefaults = VALIDATE_DEFAULTS.get();
       try {
-        validateNames.set(validate);
+        VALIDATE_NAMES.set(validate);
         VALIDATE_DEFAULTS.set(validateDefaults);
         return Schema.parse(MAPPER.readTree(parser), names);
       } catch (JsonParseException e) {
         throw new SchemaParseException(e);
       } finally {
         parser.close();
-        validateNames.set(saved);
+        VALIDATE_NAMES.set(saved);
         VALIDATE_DEFAULTS.set(savedValidateDefaults);
       }
     }
@@ -1542,21 +1545,23 @@ public abstract class Schema extends JsonProperties implements Serializable {
     }
   }
 
-  private static ThreadLocal<Boolean> validateNames = ThreadLocal.withInitial(() -> true);
+  private static final Pattern PATTERN_NAME = Pattern.compile("([A-Za-z_][A-Za-z0-9_]*)");
 
-  private static String validateName(String name) {
-    if (!validateNames.get())
+  private static final Pattern PATTERN_FULLNAME = Pattern
+      .compile("([A-Za-z_][A-Za-z0-9_]*)(\\.([A-Za-z_][A-Za-z0-9_]*))*");
+
+  private static final ThreadLocal<Boolean> VALIDATE_NAMES = ThreadLocal.withInitial(() -> true);
+
+  private static String validateName(String name, boolean allowNamespace) {
+    if (!VALIDATE_NAMES.get())
       return name; // not validating names
     int length = name.length();
     if (length == 0)
       throw new SchemaParseException("Empty name");
-    char first = name.charAt(0);
-    if (!(Character.isLetter(first) || first == '_'))
-      throw new SchemaParseException("Illegal initial character: " + name);
-    for (int i = 1; i < length; i++) {
-      char c = name.charAt(i);
-      if (!(Character.isLetterOrDigit(c) || c == '_'))
-        throw new SchemaParseException("Illegal character in: " + name);
+    if (allowNamespace && !PATTERN_FULLNAME.matcher(name).matches()) {
+      throw new SchemaParseException("Illegal character in: " + name);
+    } else if (!allowNamespace && !PATTERN_NAME.matcher(name).matches()) {
+      throw new SchemaParseException("Illegal character in: " + name);
     }
     return name;
   }
