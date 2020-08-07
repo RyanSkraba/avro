@@ -32,9 +32,8 @@ matrix:
     env:
       JAVA=11
 
-# TODO(AVRO-2847): Travis Windows/C# build is sometimes flaky
-#  - os: windows
-#    language: bash
+  - os: windows
+    language: bash
 
 before_install: "if [ -x ./.travis/before_install.sh   ] ; then ./.travis/before_install.sh ; fi"
 install:        "if [ -x ./.travis/install.sh          ] ; then ./.travis/install.sh        ; fi"
