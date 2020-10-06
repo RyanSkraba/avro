@@ -11,3 +11,5 @@ Learn more about Avro, please visit our website at:
 To contribute to Avro, please read:
 
   https://cwiki.apache.org/confluence/display/AVRO/How+To+Contribute
+
+BUILD
