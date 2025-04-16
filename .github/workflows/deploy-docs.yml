@@ -163,7 +163,7 @@ jobs:
         run: |
           set -x
           cd lang/java
-          mvn javadoc::aggregate
+          mvn --projects maven-plugin --also-make -DskipTests=true install && mvn javadoc:aggregate
       - uses: actions/upload-artifact@v4
         with:
           name: api-java
